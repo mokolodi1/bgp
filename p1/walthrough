@@ -1,5 +1,0 @@
-# install ubuntu image
-docker pull ubuntu
-
-# install busybox image
-docker pull busybox

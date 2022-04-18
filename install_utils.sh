@@ -11,13 +11,24 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker debian
+sudo usermod -aG docker root
 
 # install GNS3
-sudo apt update
 sudo apt install -y python3-pip python3-pyqt5 python3-pyqt5.qtsvg \
-python3-pyqt5.qtwebsockets \
+python3-pyqt5.qtwebsockets libpcap-dev \
 qemu qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system virtinst \
 wireshark xtightvncviewer apt-transport-https \
 ca-certificates curl gnupg2 software-properties-common
 sudo pip3 install gns3-server
 sudo pip3 install gns3-gui
+# install ubridge for GNS3
+wget https://github.com/GNS3/ubridge/archive/v0.9.16.tar.gz
+tar -zxvf v0.9.16.tar.gz
+cd ubridge-0.9.16/
+make
+sudo make install
+# install libvirt0
+virsh net-start default
+virsh net-autostart default
+
