@@ -1,4 +1,5 @@
 # install on debian virtual machine
+https://laotzu.ftp.acc.umu.se/debian-cd/current/amd64/iso-cd/debian-11.3.0-amd64-netinst.iso
 # open port 4242(HOST PORT) and 22(GUEST PORT) ssh on virtualbox
 
 # on vm
