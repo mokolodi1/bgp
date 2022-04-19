@@ -7,8 +7,8 @@ sudo apt-get update
 sudo apt-get install openssh-server
 sudo service ssh start
 
-# generer une clef sur la machine principale et la copier 
-# dans les utilisateurs autorises sur la vm
+# generate a key on the main machine and copy paste it
+# into authorized keys on the created vm
 cd ~/.ssh
 ssh-keygen
 cat id_rsa.pub >> authorized_keys
