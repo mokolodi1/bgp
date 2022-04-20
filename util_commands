@@ -1,8 +1,0 @@
-# connect to a docker container
-docker exec -it NAME_OF_CONTAINER sh
-
-# list active container
-docker ps
-
-# list docker images
-docker image list
