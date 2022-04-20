@@ -1,5 +1,5 @@
-# install debian on virtualbox
-https://laotzu.ftp.acc.umu.se/debian-cd/current/amd64/iso-cd/debian-11.3.0-amd64-netinst.iso
+# install ubuntu on virtualbox
+https://ubuntu.com/download/desktop/thank-you?version=20.04.4&architecture=amd64
 # open port 4242(HOST PORT) and 22(GUEST PORT) ssh on virtualbox
 # enable virtualisation on the debian machine
 VBoxManage modifyvm VM-NAME --nested-hw-virt on
