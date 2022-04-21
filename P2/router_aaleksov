@@ -1,0 +1,6 @@
+FROM frrouting/frr
+
+RUN apk update
+ENV daemons="zebra bgpd ospfd isisd" 
+
+ADD ./daemons /etc/frr/
