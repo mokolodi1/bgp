@@ -1,0 +1,2 @@
+# change the IP address of the eth1 interface of the host
+ip addr add 30.1.1.2/24 dev eth1
