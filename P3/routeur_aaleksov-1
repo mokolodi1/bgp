@@ -16,10 +16,6 @@ interface eth2
  ip address 10.1.1.9/30
 exit
 !
-interface l0
- ip address 1.1.1.1/32
-exit
-!
 interface lo
  ip address 1.1.1.1/32
 exit
