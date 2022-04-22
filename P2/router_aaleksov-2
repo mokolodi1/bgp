@@ -2,8 +2,7 @@
 ip addr add 10.1.1.2/24 dev eth0
 
 # create static vxlan interface, assign an ip to it and start it
-ip link add name vxlan10 type vxlan id 10 dev eth0 remote 10.1.1.1 local 10.
-1.1.2 dstport 4789
+ip link add name vxlan10 type vxlan id 10 dev eth0 remote 10.1.1.1 local 10.1.1.2 dstport 4789
 ip addr add 20.1.1.2/24 dev vxlan10
 ip link set dev vxlan10 up
 
