@@ -1,7 +1,21 @@
-FROM frrouting/frr
+# assign the IP address of the eth0 interface
+ip addr add 10.1.1.2/24 dev eth0
 
-RUN apk update
-ENV daemons="zebra bgpd ospfd isisd" 
+# create static vxlan interface, assign an ip to it and start it
+ip link add name vxlan10 type vxlan id 10 dev eth0 remote 10.1.1.1 local 10.
+1.1.2 dstport 4789
+ip addr add 20.1.1.2/24 dev vxlan10
+ip link set dev vxlan10 up
 
-ADD ./daemons /etc/frr/
-RUN touch /etc/frr/vtysh.conf
+# create a bridge to link eth1 and vxlan10
+ip link add br0 type bridge
+ip link set dev br0 up
+brctl addif br0 eth1 # brctl means "Bridge Control" and addif "Add Interface"
+brctl addif br0 vxlan10
+
+# create multicast vxlan interface (delete and recreate it)
+ip link delete vxlan10
+ip link add name vxlan10 type vxlan id 10 dev eth0 group 239.1.1.1 dstport 4789
+ip addr add 20.1.1.2/24 dev vxlan10
+ip link set dev vxlan10 up
+brctl addif br0 vxlan10

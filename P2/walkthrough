@@ -1,3 +1,5 @@
 Add 2 adaptaters on router and host on GNS3.
 
+First setup the routers then the hosts machine
+
 Each file of the P2 file contain the lines that need to be executed on each machine concerned.
