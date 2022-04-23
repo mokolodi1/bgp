@@ -6,9 +6,11 @@ ip link set dev br0 up
 brctl addif br0 vxlan10
 brctl addif br0 eth1
 
+Current configuration:
+!
 frr version 8.1_git
 frr defaults traditional
-hostname routeur-2
+hostname routeur_aaleksov-2
 no ipv6 forwarding
 service integrated-vtysh-config
 !
@@ -36,3 +38,4 @@ exit
 router ospf
 exit
 !
+end
