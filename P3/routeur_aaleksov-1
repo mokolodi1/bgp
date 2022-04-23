@@ -1,6 +1,8 @@
+Current configuration:
+!
 frr version 8.1_git
 frr defaults traditional
-hostname routeur-1
+hostname routeur_aaleksov-1
 no ipv6 forwarding
 service integrated-vtysh-config
 !
@@ -22,14 +24,14 @@ exit
 !
 router bgp 1
  bgp router-id 1.1.1.1
- neighbor ibgp peer-group
- neighbor ibgp remote-as 1
- neighbor ibgp update-source lo
- bgp listen range 1.1.1.0/29 peer-group ibgp
+ neighbor vtep peer-group
+ neighbor vtep remote-as 1
+ neighbor vtep update-source lo
+ bgp listen range 1.1.1.0/29 peer-group vtep
  !
  address-family l2vpn evpn
-  neighbor ibgp activate
-  neighbor ibgp route-reflector-client
+  neighbor vtep activate
+  neighbor vtep route-reflector-client
  exit-address-family
 exit
 !
@@ -37,3 +39,4 @@ router ospf
  network 0.0.0.0/0 area 0
 exit
 !
+end
