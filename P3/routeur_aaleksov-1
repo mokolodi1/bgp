@@ -24,14 +24,14 @@ exit
 !
 router bgp 1
  bgp router-id 1.1.1.1
- neighbor vtep peer-group
- neighbor vtep remote-as 1
- neighbor vtep update-source lo
- bgp listen range 1.1.1.0/29 peer-group vtep
+ neighbor aaleksov-vteps peer-group
+ neighbor aaleksov-vteps remote-as 1
+ neighbor aaleksov-vteps update-source lo
+ bgp listen range 1.1.1.0/24 peer-group aaleksov-vteps
  !
  address-family l2vpn evpn
-  neighbor vtep activate
-  neighbor vtep route-reflector-client
+  neighbor aaleksov-vteps activate
+  neighbor aaleksov-vteps route-reflector-client
  exit-address-family
 exit
 !
