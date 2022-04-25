@@ -1,1 +1,2 @@
+# change the IP address of the eth1 interface of the host
 ip addr add 20.1.1.1/24 dev eth1
