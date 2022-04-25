@@ -4,3 +4,5 @@ RUN apk update
 ENV daemons="zebra bgpd ospfd isisd" 
 
 ADD ./daemons /etc/frr/
+
+RUN echo "service integrated-vtysh-config" >> /etc/frr/vtysh.conf
